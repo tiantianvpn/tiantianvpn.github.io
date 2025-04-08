@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://tiantianvpn.github.io/news/article-90826.htm" />
+    <meta charset="utf-8">
+    <title>SpringBoot+Redis实现消息的发布与订阅的示例代码_java</title>
+        <meta name="description" content="目录  1.什么是redis的发布与订阅 2.Redis发布订阅 3.命令行实现功能  订阅主题 模式匹配订阅 发布消息 取消订阅 测试  4.SpringBoot实现功能  Springboot整合" />
+        <link rel="icon" href="/assets/website/img/clash_verge_node/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="天天VPN 免费节点订阅中文网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://tiantianvpn.github.io/news/article-90826.htm" />
+    <meta property="og:site_name" content="天天VPN 免费节点订阅中文网" />
+    <meta property="og:title" content="SpringBoot+Redis实现消息的发布与订阅的示例代码_java" />
+    <meta property="og:image" content="https://tiantianvpn.github.io/uploads/20240912-1/67a87cfded1c3b8caca9dd9d06c76cf4.webp" />
+        <meta property="og:release_date" content="2025-04-08T09:51:27" />
+    <meta property="og:updated_time" content="2025-04-08T09:51:27" />
+        <meta property="og:description" content="目录  1.什么是redis的发布与订阅 2.Redis发布订阅 3.命令行实现功能  订阅主题 模式匹配订阅 发布消息 取消订阅 测试  4.SpringBoot实现功能  Springboot整合" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="SpringBoot+Redis实现消息的发布与订阅的示例代码_java">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    
+    <!-- Pe-7 icon -->
+    <link href="/assets/website/css/clash_verge_node/pe-icon-7.css" rel="stylesheet" type="text/css">
+    <!--Slider-->
+    <link rel="stylesheet" href="/assets/website/css/clash_verge_node/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/clash_verge_node/owl.theme.default.min.css">
+    <!-- css -->
+    <link href="/assets/website/css/clash_verge_node/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/assets/website/css/clash_verge_node/style.min.css" rel="stylesheet" type="text/css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZRLWNG5DYP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZRLWNG5DYP');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Loader -->
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+    </div>
+    <!--Navbar Start-->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-custom sticky sticky-dark align-items-center">
+        <div class="container">
+                        <a class="logo mr-3" href="/">
+                <span>天天VPN</span>
+            </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><i class="" data-feather="menu"></i></button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav navbar-center" id="mySidenav">
+                                        <li class="nav-item"><a href="/" class="nav-link">首页</a></li>
+                                        <li class="nav-item"><a href="/free-nodes/" class="nav-link">免费节点</a></li>
+                                        <li class="nav-item"><a href="/paid-subscribe/" class="nav-link">推荐机场</a></li>
+                                        <li class="nav-item"><a href="/news/" class="nav-link">新闻资讯</a></li>
+                                        <li class="nav-item"><a href="/client.htm" class="nav-link">客户端</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+    <!-- Hero Start -->
+    <section class="hero-1-bg bg-light" style="background-image: url(/assets/website/img/clash_verge_node/hero-1-bg-img.png);padding: 0;" id="home">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-6">
+                    <h1 class="hero-1-title font-weight-normal text-dark mb-4">SpringBoot+Redis实现消息的发布与订阅的示例代码_java</h1>
+                    <p class="text-muted mb-4 pb-3">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                    </p>
+                </div>
+                <div class="col-lg-6 col-md-10">
+                    <div class="mt-lg-0"><img src="/assets/website/img/clash_verge_node/hero-img.png" alt="" class="img-fluid d-block mx-auto"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero End -->
+    <!-- Features Start -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="features-content">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">1.什么是redis的发布与订阅</a></li> <li><a href="#_label1" rel="nofollow">2.Redis发布订阅</a></li> <li><a href="#_label2" rel="nofollow">3.命令行实现功能</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_2_0" rel="nofollow">订阅主题</a></li> <li><a href="#_lab2_2_1" rel="nofollow">模式匹配订阅</a></li> <li><a href="#_lab2_2_2" rel="nofollow">发布消息</a></li> <li><a href="#_lab2_2_3" rel="nofollow">取消订阅</a></li> <li><a href="#_lab2_2_4" rel="nofollow">测试</a></li> </ul> <li><a href="#_label3" rel="nofollow">4.SpringBoot实现功能</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_3_5" rel="nofollow">Springboot整合Redis</a></li> <li><a href="#_lab2_3_6" rel="nofollow">配置消息监听</a></li> <li><a href="#_lab2_3_7" rel="nofollow">测试</a></li> </ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>1.什么是redis的发布与订阅</h2> <p>在官网的文档介绍中有一行介绍：Redis是一个快速稳定的发布/订阅消息系统。</p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>2.Redis发布订阅</h2> <p>机制</p> <p>Redis提供了发布与订阅的功能，可以用于消息的传输，Redis的发布订阅机制包括三部分，发布者、订阅者和Channel（主题或者队列）。</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/d564a53fab47e10c53ce5b912a4d256f.jpg"></p> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>3.命令行实现功能</h2> <p class="maodian"><a name="_lab2_2_0" rel="nofollow"></a></p> <h3>订阅主题</h3> <p>Redis采用SUBSCRIBE channel命令订阅某个主题，返回的参数subscribe表示已经成功订阅主题，第二个参数表示订阅的主题名称，第三个表示当前订阅数</p> <div class="ay1code"> <pre class="brush:sql;">127.0.0.1:6379&gt; SUBSCRIBE ORDER-PAY-SUCCESS  Reading messages... (press Ctrl-C to quit)  1) "subscribe"  2) "ORDER-PAY-SUCCESS"  3) (integer) 1  </pre> </div> <p class="maodian"><a name="_lab2_2_1" rel="nofollow"></a></p> <h3>模式匹配订阅</h3> <p>模式匹配功能是允许客户端订阅匹配某种模式的频道，Redis采用PSUBSCRIBE channel命令订阅匹配某种模式的所有频道，用*表示模式，*可以被任意值代替。</p> <div class="ay1code"> <pre class="brush:sql;">127.0.0.1:6379&gt; PSUBSCRIBE ORDER-PAY-*  Reading messages... (press Ctrl-C to quit)  1) "psubscribe"  2) "ORDER-PAY-*"  3) (integer) 1  </pre> </div> <p class="maodian"><a name="_lab2_2_2" rel="nofollow"></a></p> <h3>发布消息</h3> <p>Redis采用PUBLISH channel message命令在某个主题上发布消息，返回的参数是接收到消息的订阅者个数</p> <div class="ay1code"> <pre class="brush:sql;">127.0.0.1:6379&gt; PUBLISH ORDER-PAY-SUCCESS DD202109071525  (integer) 1  </pre> </div> <p class="maodian"><a name="_lab2_2_3" rel="nofollow"></a></p> <h3>取消订阅</h3> <p>Redis采用UNSUBSCRIBE channel或PUNSUBSCRIBE channel命令取消某个主题的订阅，由于Redis的订阅操作是阻塞式的，因此一旦客户端订阅了某个频道或模式，就将会一直处于订阅状态直到退出。在 SUBSCRIBE，PSUBSCRIBE，UNSUBSCRIBE 和 PUNSUBSCRIBE 命令中，其返回值都包含了该客户端当前订阅的频道和模式的数量，当这个数量变为0时，该客户端会自动退出订阅状态。</p> <div class="ay1code"> <pre class="brush:sql;">127.0.0.1:6379&gt; UNSUBSCRIBE ORDER-PAY-SUCCESS  1) "unsubscribe"  2) "ORDER-PAY-SUCCESS"  3) (integer) 0  127.0.0.1:6379&gt; PUNSUBSCRIBE ORDER-PAY-SUCCESS  1) "punsubscribe"  2) "ORDER-PAY-SUCCESS"  3) (integer) 0  </pre> </div> <p class="maodian"><a name="_lab2_2_4" rel="nofollow"></a></p> <p class="maodian"><a name="_lab2_3_7" rel="nofollow"></a></p> <h3>测试</h3> <p>首先三个订阅者订阅ORDER-PAY-SUCCESS主题，当发送者在这个主题内发送订单号时，所有的订阅者都会收到这个主题的消息。</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/615a3510bb29bac13626b72774c41e64.jpg"></p> <p class="maodian"><a name="_label3" rel="nofollow"></a></p> <h2>4.SpringBoot实现功能</h2> <p class="maodian"><a name="_lab2_3_5" rel="nofollow"></a></p> <h3>Springboot整合Redis</h3> <p>引入依赖包</p> <div class="ay1code"> <pre class="brush:xml;">&lt;dependencies&gt;          &lt;dependency&gt;              &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;              &lt;artifactId&gt;spring-boot-starter&lt;/artifactId&gt;              &lt;version&gt;2.2.10.RELEASE&lt;/version&gt;          &lt;/dependency&gt;          &lt;dependency&gt;              &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;              &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;              &lt;version&gt;2.2.10.RELEASE&lt;/version&gt;          &lt;/dependency&gt;          &lt;dependency&gt;              &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;              &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;              &lt;version&gt;2.4.1&lt;/version&gt;          &lt;/dependency&gt;      &lt;/dependencies&gt;  </pre> </div> <p>配置yaml文件</p> <div class="ay1code"> <pre class="brush:plain;">server:    port: 8888    spring:    application:      name: spring-boot-redis    redis:      host: 127.0.0.1      port: 6379</pre> </div> <p class="maodian"><a name="_lab2_3_6" rel="nofollow"></a></p> <h3>配置消息监听</h3> <div class="ay1code"> <pre class="brush:java;">import com.demo.redis.listener.MessageListener;  import org.springframework.context.annotation.Bean;  import org.springframework.context.annotation.Configuration;  import org.springframework.data.redis.connection.RedisConnectionFactory;  import org.springframework.data.redis.core.StringRedisTemplate;  import org.springframework.data.redis.listener.PatternTopic;  import org.springframework.data.redis.listener.RedisMessageListenerContainer;  import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;    /**   * @author Bai   * @date 2021/4/29 上午 11:17   * @description   */  @Configuration  public class RedisMessageConfig {        /**       * 监听订单支付完成主题       */      private static final String ORDER_PAY_SUCCESS = "ORDER-PAY-SUCCESS";        /**       * 注入消息监听适配器       * @param messageListener       * @return {@link MessageListenerAdapter}       * @throws       * @author Bai       * @date 2021/9/7 下午 03:54       */      @Bean      public MessageListenerAdapter getMessageListenerAdapter(MessageListener messageListener){          return new MessageListenerAdapter(messageListener, "onMessage");      }        /**       * 注入消息监听容器       * @param redisConnectionFactory       * @param messageListenerAdapter       * @return {@link RedisMessageListenerContainer}       * @throws       * @author Bai       * @date 2021/9/7 下午 03:54       */      @Bean      public RedisMessageListenerContainer getRedisMessageListenerContainer(RedisConnectionFactory redisConnectionFactory, MessageListenerAdapter messageListenerAdapter){          RedisMessageListenerContainer redisMessageListenerContainer = new RedisMessageListenerContainer();          redisMessageListenerContainer.setConnectionFactory(redisConnectionFactory);            //订阅订单支付成功主题          redisMessageListenerContainer.addMessageListener(messageListenerAdapter, new PatternTopic(ORDER_PAY_SUCCESS));          return redisMessageListenerContainer;      }        /**       * 处理内容       * @param connectionFactory       * @return {@link StringRedisTemplate}       * @throws       * @author Bai       * @date 2021/9/7 下午 04:01       */      @Bean      StringRedisTemplate template(RedisConnectionFactory connectionFactory) {          return new StringRedisTemplate(connectionFactory);      }  }</pre> </div> <p>接收消息</p> <div class="ay1code"> <pre class="brush:java;">import org.springframework.stereotype.Component;    /**   * @author Bai   * @date 2021/9/7 下午 03:51   * @description   */  @Component  public class MessageListener {        public void onMessage(String message){          System.out.println("接收消息：" + message);      }  }</pre> </div> <h3>测试</h3> <p>发送订单支付成功的消息</p> <div class="ay1code"> <pre class="brush:java;">import org.junit.Test;  import org.junit.runner.RunWith;  import org.springframework.boot.test.context.SpringBootTest;  import org.springframework.data.redis.core.StringRedisTemplate;  import org.springframework.test.context.junit4.SpringRunner;    import javax.annotation.Resource;    /**   * @author Bai   * @date 2021/9/7 下午 04:32   * @description   */  @RunWith(value = SpringRunner.class)  @SpringBootTest  public class RedisPubTest {        /**       * 订单支付完成主题       */      private static final String ORDER_PAY_SUCCESS = "ORDER-PAY-SUCCESS";        @Resource      private StringRedisTemplate stringRedisTemplate;        /**       * 模拟发送5调订单支付完成的消息       * @throws       * @author Bai       * @date 2021/9/7 下午 04:57       */      @Test      public void sendMessage(){          for (int i = 0; i &lt; 5; i++) {              stringRedisTemplate.convertAndSend(ORDER_PAY_SUCCESS,"DD" + System.currentTimeMillis());          }      }  }</pre> </div> <p>接收到订单支付成功的消息</p> <blockquote> <p>  .   ____          _            __ _ _<br /> /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \<br />( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \<br /> \\/  ___)| |_)| | | | | || (_| |  ) ) ) )<br />  '  |____| .__|_| |_|_| |_\__, | / / / /<br /> =========|_|==============|___/=/_/_/_/<br /> :: Spring Boot ::       (v2.2.10.RELEASE)</p> <p>2021-09-07 16:56:54.729  INFO 3712 --- [           main] com.demo.redis.RedisSubPubApplication    : Starting RedisSubPubApplication on DESKTOP-595LI4G with PID 3712 (D:\Bai\Sources\spring-boot-demo\redis-sub-pub\target\classes started by 1 in D:\Bai\Sources\spring-boot-demo)<br />2021-09-07 16:56:54.735  INFO 3712 --- [           main] com.demo.redis.RedisSubPubApplication    : No active profile set, falling back to default profiles: default<br />2021-09-07 16:56:55.205  INFO 3712 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!<br />2021-09-07 16:56:55.207  INFO 3712 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.<br />2021-09-07 16:56:55.229  INFO 3712 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.<br />2021-09-07 16:56:55.557  INFO 3712 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)<br />2021-09-07 16:56:55.565  INFO 3712 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]<br />2021-09-07 16:56:55.565  INFO 3712 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]<br />2021-09-07 16:56:55.669  INFO 3712 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext<br />2021-09-07 16:56:55.669  INFO 3712 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 895 ms<br />2021-09-07 16:56:56.032  INFO 3712 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'<br />2021-09-07 16:56:56.950  INFO 3712 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path ''<br />2021-09-07 16:56:56.952  INFO 3712 --- [           main] com.demo.redis.RedisSubPubApplication    : Started RedisSubPubApplication in 2.557 seconds (JVM running for 3.436)<br />接收消息：DD1631005025949<br />接收消息：DD1631005025964<br />接收消息：DD1631005025965<br />接收消息：DD1631005025967<br />接收消息：DD1631005025968</p> </blockquote> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-90259.htm">开宠物店赔钱几率大不大（开宠物店会赔钱吗）</a></p>
+                                        <p>下一个：<a href="/news/article-90827.htm">宠物粮批发怎么做赚钱（宠物粮批发怎么做赚钱快）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-14-free-subscribe-node.htm" title="天天VPN | 3月14日19.8M/S|免费V2ray/Shadowrocket/Clash/SSR免费节点地址">天天VPN | 3月14日19.8M/S|免费V2ray/Shadowrocket/Clash/SSR免费节点地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-23-free-high-speed-nodes.htm" title="天天VPN | 3月23日20.3M/S|免费Shadowrocket/SSR/V2ray/Clash免费节点地址">天天VPN | 3月23日20.3M/S|免费Shadowrocket/SSR/V2ray/Clash免费节点地址</a></li>
+                        <li class="py-2"><a href="/news/article-67400.htm" title="宠物店亏本原因（现在宠物店生意亏死）">宠物店亏本原因（现在宠物店生意亏死）</a></li>
+                        <li class="py-2"><a href="/news/article-83016.htm" title="自己驱虫好还是宠物店驱虫好一点（自己驱虫和宠物店驱虫）">自己驱虫好还是宠物店驱虫好一点（自己驱虫和宠物店驱虫）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-8-free-subscribe-node.htm" title="天天VPN | 3月8日22.4M/S|免费Shadowrocket/SSR/V2ray/Clash免费节点地址">天天VPN | 3月8日22.4M/S|免费Shadowrocket/SSR/V2ray/Clash免费节点地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-24-node-share.htm" title="天天VPN | 3月24日18M/S|免费Shadowrocket/Clash/SSR/V2ray免费节点地址">天天VPN | 3月24日18M/S|免费Shadowrocket/Clash/SSR/V2ray免费节点地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-16-clash-v2ray-ss-ssr.htm" title="天天VPN | 3月16日18.8M/S|免费Clash/V2ray/SSR/Shadowrocket免费节点地址">天天VPN | 3月16日18.8M/S|免费Clash/V2ray/SSR/Shadowrocket免费节点地址</a></li>
+                        <li class="py-2"><a href="/news/article-90827.htm" title="宠物粮批发怎么做赚钱（宠物粮批发怎么做赚钱快）">宠物粮批发怎么做赚钱（宠物粮批发怎么做赚钱快）</a></li>
+                        <li class="py-2"><a href="/news/article-74093.htm" title="动物防疫疫苗管理工作内容是什么（动物防疫注射栏）">动物防疫疫苗管理工作内容是什么（动物防疫注射栏）</a></li>
+                        <li class="py-2"><a href="/news/article-89490.htm" title="上海动物防疫站打疫苗时间（上海动物疫苗控制中心）">上海动物防疫站打疫苗时间（上海动物疫苗控制中心）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">24</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">81</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Features End -->
+        <!-- Footer Start -->
+    <section class="footer" style="background-image: url(/assets/website/img/clash_verge_node/hero-1-bg-img.png)">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-center">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <p class="text-white-50 f-15 mb-0">
+                            <a href="/">天天VPN 免费节点订阅中文网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer End -->
+    <!-- javascript -->
+    <script src="/assets/website/js/frontend/clash_verge_node/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_verge_node/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_verge_node/jquery.easing.min.js"></script>
+    <!-- feather icons -->
+    <script src="/assets/website/js/frontend/clash_verge_node/feather-icons.js"></script>
+    <!-- carousel -->
+    <script src="/assets/website/js/frontend/clash_verge_node/owl.carousel.min.js"></script>
+    <!-- Main Js -->
+    <script src="/assets/website/js/frontend/clash_verge_node/app.js"></script>
+
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
