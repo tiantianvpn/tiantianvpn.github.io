@@ -258,19 +258,14 @@ V3.0版本是一个面向所有用户的版本，尤其适合新手用户。它�
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Netch 的 TAP 模式与 TUN 模式区别是什么？</h5></div>
+    <div class="panel-body">
+        TAP 模式模拟以太网接口，适合游戏流量代理；TUN 模式则模拟 IP 层接口，更适合全局代理。根据用途不同可自由选择，但需管理员权限运行。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Matsuri 节点延迟排序功能如何使用？</h5></div>
     <div class="panel-body">
         Matsuri 定期测速节点延迟，并结合策略组自动选择延迟最低的节点。用户无需手动切换节点，即可保持高速访问，提高网页、视频和游戏体验的稳定性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>QuantumultX 分流规则如何优化游戏体验？</h5></div>
-    <div class="panel-body">
-        QuantumultX 可按端口、协议或应用设置分流规则，将游戏流量走低延迟节点。结合策略组自动切换，可保证游戏连接稳定，减少掉线和延迟，提高流畅度。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekobox 是否支持多客户端同时管理节点？</h5></div>
-    <div class="panel-body">
-        支持。Nekobox 可以独立管理多个客户端，如 Shadowsocks 和 Clash 节点，互不干扰。结合策略组，可实现多客户端流量分流和网络优化，提高便利性和效率。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VMess MUX 功能如何改善短连接延迟？</h5></div>
@@ -283,19 +278,14 @@ V3.0版本是一个面向所有用户的版本，尤其适合新手用户。它�
         支持。Nekobox 可以独立管理 Shadowsocks、Clash 等客户端节点，互不干扰。结合策略组，可实现多客户端流量分流和网络优化，提高节点管理效率和使用便利性。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Trojan 协议的安全性如何？</h5></div>
+    <div class="panel-heading"><h5>QuantumultX 分流规则如何优化游戏体验？</h5></div>
     <div class="panel-body">
-        Trojan 使用与 HTTPS 类似的 TLS 加密通道，使其数据流难以与普通网页访问区分。它兼具隐蔽性与安全性，几乎无法被防火墙检测。Trojan 协议的主要优势在于稳定、安全、兼容性强，因此广受高级用户青睐。<hr />    </div>
+        QuantumultX 可按端口、协议或应用设置分流规则，将游戏流量走低延迟节点。结合策略组自动切换，可保证游戏连接稳定，减少掉线和延迟，提高流畅度。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS + XTLS 模式能在移动网络下提高稳定性吗？</h5></div>
+    <div class="panel-heading"><h5>Nekobox 是否支持多客户端同时管理节点？</h5></div>
     <div class="panel-body">
-        可以。XTLS 降低加密开销，减少握手次数，适合移动网络高延迟或不稳定环境。结合策略组和多出口节点，可提升连接稳定性和访问速度。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 的分流规则可以按端口分配节点吗？</h5></div>
-    <div class="panel-body">
-        支持。用户可通过端口号匹配流量，将不同应用的流量分配到指定节点，实现精准分流。结合策略组使用，可优化访问速度和网络稳定性。<hr />    </div>
+        支持。Nekobox 可以独立管理多个客户端，如 Shadowsocks 和 Clash 节点，互不干扰。结合策略组，可实现多客户端流量分流和网络优化，提高便利性和效率。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Potatso Lite 为什么在 iOS 上广受欢迎？</h5></div>
@@ -303,9 +293,19 @@ V3.0版本是一个面向所有用户的版本，尤其适合新手用户。它�
         Potatso Lite 是一款操作简洁的代理工具，支持多种代理协议和自定义规则。它适合不需要复杂配置的用户，界面友好、性能稳定，非常适合日常轻量使用和应用代理。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Netch 的 TAP 模式与 TUN 模式区别是什么？</h5></div>
+    <div class="panel-heading"><h5>Sing-box 的分流规则可以按端口分配节点吗？</h5></div>
     <div class="panel-body">
-        TAP 模式模拟以太网接口，适合游戏流量代理；TUN 模式则模拟 IP 层接口，更适合全局代理。根据用途不同可自由选择，但需管理员权限运行。    </div>
+        支持。用户可通过端口号匹配流量，将不同应用的流量分配到指定节点，实现精准分流。结合策略组使用，可优化访问速度和网络稳定性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VLESS + XTLS 模式能在移动网络下提高稳定性吗？</h5></div>
+    <div class="panel-body">
+        可以。XTLS 降低加密开销，减少握手次数，适合移动网络高延迟或不稳定环境。结合策略组和多出口节点，可提升连接稳定性和访问速度。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Trojan 协议的安全性如何？</h5></div>
+    <div class="panel-body">
+        Trojan 使用与 HTTPS 类似的 TLS 加密通道，使其数据流难以与普通网页访问区分。它兼具隐蔽性与安全性，几乎无法被防火墙检测。Trojan 协议的主要优势在于稳定、安全、兼容性强，因此广受高级用户青睐。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -334,16 +334,16 @@ V3.0版本是一个面向所有用户的版本，尤其适合新手用户。它�
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2025-10-15-free-node-subscribe.htm" title="天天VPN | 10月15日20.7M/S|免费Singbox节点/Clash节点/V2ray节点/SSR节点/Shadowrocket节点免费节点地址">天天VPN | 10月15日20.7M/S|免费Singbox节点/Clash节点/V2ray节点/SSR节点/Shadowrocket节点免费节点地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-8-vpn-github.htm" title="天天VPN | 10月8日18.9M/S|免费Clash节点/V2ray节点/SSR节点/Singbox节点/Shadowrocket节点免费节点地址">天天VPN | 10月8日18.9M/S|免费Clash节点/V2ray节点/SSR节点/Singbox节点/Shadowrocket节点免费节点地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-6-vpn-proxy.htm" title="天天VPN | 11月6日22.2M/S|免费Shadowrocket节点/Clash节点/V2ray节点/SSR节点/Singbox节点免费节点地址">天天VPN | 11月6日22.2M/S|免费Shadowrocket节点/Clash节点/V2ray节点/SSR节点/Singbox节点免费节点地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-31-mianfei-vpn.htm" title="天天VPN | 10月31日19.5M/S|免费Singbox节点/V2ray节点/Shadowrocket节点/Clash节点/SSR节点免费节点地址">天天VPN | 10月31日19.5M/S|免费Singbox节点/V2ray节点/Shadowrocket节点/Clash节点/SSR节点免费节点地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-5-free-node-subscribe-links.htm" title="天天VPN | 10月5日22.4M/S|免费SSR节点/Clash节点/Shadowrocket节点/Singbox节点/V2ray节点免费节点地址">天天VPN | 10月5日22.4M/S|免费SSR节点/Clash节点/Shadowrocket节点/Singbox节点/V2ray节点免费节点地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-12-vpn-free.htm" title="天天VPN | 11月12日18.8M/S|免费Singbox节点/Shadowrocket节点/V2ray节点/SSR节点/Clash节点免费节点地址">天天VPN | 11月12日18.8M/S|免费Singbox节点/Shadowrocket节点/V2ray节点/SSR节点/Clash节点免费节点地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-6-mianfei-vpn.htm" title="天天VPN | 10月6日19.4M/S|免费V2ray节点/Singbox节点/Shadowrocket节点/Clash节点/SSR节点免费节点地址">天天VPN | 10月6日19.4M/S|免费V2ray节点/Singbox节点/Shadowrocket节点/Clash节点/SSR节点免费节点地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-14-free-vpn-node.htm" title="天天VPN | 10月14日21.2M/S|免费SSR节点/V2ray节点/Shadowrocket节点/Clash节点/Singbox节点免费节点地址">天天VPN | 10月14日21.2M/S|免费SSR节点/V2ray节点/Shadowrocket节点/Clash节点/Singbox节点免费节点地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-19-vpn-proxy.htm" title="天天VPN | 10月19日19.2M/S|免费Shadowrocket节点/SSR节点/Singbox节点/V2ray节点/Clash节点免费节点地址">天天VPN | 10月19日19.2M/S|免费Shadowrocket节点/SSR节点/Singbox节点/V2ray节点/Clash节点免费节点地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-17-share-vpn.htm" title="天天VPN | 10月17日19.7M/S|免费SSR节点/V2ray节点/Clash节点/Singbox节点/Shadowrocket节点免费节点地址">天天VPN | 10月17日19.7M/S|免费SSR节点/V2ray节点/Clash节点/Singbox节点/Shadowrocket节点免费节点地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-7-vpn-proxy.htm" title="天天VPN | 10月7日22M/S|免费V2ray节点/Shadowrocket节点/Clash节点/Singbox节点/SSR节点免费节点地址">天天VPN | 10月7日22M/S|免费V2ray节点/Shadowrocket节点/Clash节点/Singbox节点/SSR节点免费节点地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-21-vpn-free.htm" title="天天VPN | 10月21日20.5M/S|免费Shadowrocket节点/Clash节点/Singbox节点/V2ray节点/SSR节点免费节点地址">天天VPN | 10月21日20.5M/S|免费Shadowrocket节点/Clash节点/Singbox节点/V2ray节点/SSR节点免费节点地址</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-10-16-free-vpn-node.htm" title="天天VPN | 10月16日20.3M/S|免费Shadowrocket节点/Singbox节点/Clash节点/V2ray节点/SSR节点免费节点地址">天天VPN | 10月16日20.3M/S|免费Shadowrocket节点/Singbox节点/Clash节点/V2ray节点/SSR节点免费节点地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-4-node-share.htm" title="天天VPN | 11月4日22.7M/S|免费V2ray节点/SSR节点/Clash节点/Singbox节点/Shadowrocket节点免费节点地址">天天VPN | 11月4日22.7M/S|免费V2ray节点/SSR节点/Clash节点/Singbox节点/Shadowrocket节点免费节点地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-3-mianfei-vpn.htm" title="天天VPN | 10月3日20.5M/S|免费Shadowrocket节点/Clash节点/SSR节点/V2ray节点/Singbox节点免费节点地址">天天VPN | 10月3日20.5M/S|免费Shadowrocket节点/Clash节点/SSR节点/V2ray节点/Singbox节点免费节点地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-27-free-node-subscribe.htm" title="天天VPN | 10月27日18.4M/S|免费V2ray节点/Shadowrocket节点/SSR节点/Singbox节点/Clash节点免费节点地址">天天VPN | 10月27日18.4M/S|免费V2ray节点/Shadowrocket节点/SSR节点/Singbox节点/Clash节点免费节点地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-3-node-share-links.htm" title="天天VPN | 11月3日19.1M/S|免费Singbox节点/Clash节点/V2ray节点/SSR节点/Shadowrocket节点免费节点地址">天天VPN | 11月3日19.1M/S|免费Singbox节点/Clash节点/V2ray节点/SSR节点/Shadowrocket节点免费节点地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-11-node-share.htm" title="天天VPN | 10月11日20.7M/S|免费Clash节点/SSR节点/Singbox节点/V2ray节点/Shadowrocket节点免费节点地址">天天VPN | 10月11日20.7M/S|免费Clash节点/SSR节点/Singbox节点/V2ray节点/Shadowrocket节点免费节点地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-5-top-vpn-node.htm" title="天天VPN | 11月5日19.1M/S|免费Singbox节点/Shadowrocket节点/Clash节点/V2ray节点/SSR节点免费节点地址">天天VPN | 11月5日19.1M/S|免费Singbox节点/Shadowrocket节点/Clash节点/V2ray节点/SSR节点免费节点地址</a></li>
                     </ul>
     </div>
 </div>
@@ -355,7 +355,7 @@ V3.0版本是一个面向所有用户的版本，尤其适合新手用户。它�
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">26</span> <a href="/date/2025-10/" title="2025-10 归档">2025-10</a></h4>
