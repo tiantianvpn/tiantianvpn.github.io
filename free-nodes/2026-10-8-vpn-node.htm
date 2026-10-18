@@ -368,34 +368,14 @@ PROCESS-NAME,YouTube,PROXY
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Hiddify Next 是什么？</h5></div>
-    <div class="panel-body">
-        Hiddify Next 是基于 sing-box 的多协议代理客户端，适用于 Android、Windows 等平台。它整合了 Vless、VMess、Trojan、Hysteria 等协议，支持自动测速和订阅转换，是移动端非常流行的代理工具。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>如何在手机上减少代理应用对电量的消耗？</h5></div>
     <div class="panel-body">
         关闭不必要的后台代理连接，减少实时测速或心跳频率，启用省电模式并限制流量统计与日志记录；对于常用站点设置直连策略，避免所有流量都走代理带来的持续网络负荷。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Netch 的规则代理与全局代理如何选择？</h5></div>
+    <div class="panel-heading"><h5>Potatso Lite 是否支持 Vless？</h5></div>
     <div class="panel-body">
-        全局代理会将所有流量通过节点转发，而规则代理只针对指定 IP、端口或应用。用户可根据需求选择，以优化带宽利用和流量分流，确保不同应用的最佳体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekoray 如何实现节点延迟自动切换？</h5></div>
-    <div class="panel-body">
-        Nekoray 支持配置策略组（Policy Group），用户可设置 URL 测试或周期检测机制，根据延迟自动选择最优节点。此功能能提升稳定性，尤其适合多线路机场订阅用户。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Potatso Lite 的节点导入方式有哪些？</h5></div>
-    <div class="panel-body">
-        Potatso Lite 支持通过手动添加节点信息或扫描二维码导入节点。虽然不支持自动订阅更新，但对轻量用户来说，手动方式足够使用，方便在 iOS 设备上管理节点。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Mihomo 节点分组功能有什么优势？</h5></div>
-    <div class="panel-body">
-        分组管理可按延迟、地区或用途分类节点，并结合策略组实现自动分流。用户可快速选择最优节点，提高访问速度和稳定性，方便管理大量节点并优化维护效率。<hr />    </div>
+        目前 Potatso Lite 仅支持 Shadowsocks 和 Vmess 协议，不支持 Vless。但开发者正在逐步扩展功能，未来可能加入更多现代代理协议支持。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Netch 全局与规则代理如何合理选择？</h5></div>
@@ -403,9 +383,29 @@ PROCESS-NAME,YouTube,PROXY
         全局代理适合游戏或全局科学上网，将所有流量通过节点；规则代理仅对指定应用或 IP 走代理，可提高带宽利用率和访问效率，根据使用场景灵活选择模式。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Potatso Lite 的节点导入方式有哪些？</h5></div>
+    <div class="panel-body">
+        Potatso Lite 支持通过手动添加节点信息或扫描二维码导入节点。虽然不支持自动订阅更新，但对轻量用户来说，手动方式足够使用，方便在 iOS 设备上管理节点。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Hysteria2 的多路复用对短连接有何优势？</h5></div>
     <div class="panel-body">
         多路复用允许多个短连接共享同一通道，减少握手延迟和资源消耗。适合高频短连接应用，如游戏和即时通讯，可提高吞吐量和连接稳定性，优化网络体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Netch 的规则代理与全局代理如何选择？</h5></div>
+    <div class="panel-body">
+        全局代理会将所有流量通过节点转发，而规则代理只针对指定 IP、端口或应用。用户可根据需求选择，以优化带宽利用和流量分流，确保不同应用的最佳体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Mihomo 节点分组功能有什么优势？</h5></div>
+    <div class="panel-body">
+        分组管理可按延迟、地区或用途分类节点，并结合策略组实现自动分流。用户可快速选择最优节点，提高访问速度和稳定性，方便管理大量节点并优化维护效率。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Hiddify Next 是什么？</h5></div>
+    <div class="panel-body">
+        Hiddify Next 是基于 sing-box 的多协议代理客户端，适用于 Android、Windows 等平台。它整合了 Vless、VMess、Trojan、Hysteria 等协议，支持自动测速和订阅转换，是移动端非常流行的代理工具。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Mihomo 的日志功能如何调试连接问题？</h5></div>
@@ -413,9 +413,9 @@ PROCESS-NAME,YouTube,PROXY
         Mihomo 日志可显示节点连接、请求延迟和错误信息。通过分析日志，可以判断节点是否不可达、TLS 握手失败或规则匹配异常，从而快速定位问题并解决。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Potatso Lite 是否支持 Vless？</h5></div>
+    <div class="panel-heading"><h5>Nekoray 如何实现节点延迟自动切换？</h5></div>
     <div class="panel-body">
-        目前 Potatso Lite 仅支持 Shadowsocks 和 Vmess 协议，不支持 Vless。但开发者正在逐步扩展功能，未来可能加入更多现代代理协议支持。    </div>
+        Nekoray 支持配置策略组（Policy Group），用户可设置 URL 测试或周期检测机制，根据延迟自动选择最优节点。此功能能提升稳定性，尤其适合多线路机场订阅用户。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -463,16 +463,16 @@ PROCESS-NAME,YouTube,PROXY
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/vpn-github-2026-9-15.htm" title="天天VPN | 9月15日19.6M/S|免费SSR节点/V2ray节点/Trojan节点/Clash节点/Singbox节点/Shadowrocket节点免费节点地址">天天VPN | 9月15日19.6M/S|免费SSR节点/V2ray节点/Trojan节点/Clash节点/Singbox节点/Shadowrocket节点免费节点地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-14-node-share.htm" title="天天VPN | 9月14日20.1M/S|免费Singbox节点/Clash节点/SSR节点/V2ray节点/Shadowrocket节点/Trojan节点免费节点地址">天天VPN | 9月14日20.1M/S|免费Singbox节点/Clash节点/SSR节点/V2ray节点/Shadowrocket节点/Trojan节点免费节点地址</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/top-vpn-2026-9-13.htm" title="天天VPN | 9月13日21.8M/S|免费SSR节点/V2ray节点/Shadowrocket节点/Clash节点/Singbox节点/Trojan节点免费节点地址">天天VPN | 9月13日21.8M/S|免费SSR节点/V2ray节点/Shadowrocket节点/Clash节点/Singbox节点/Trojan节点免费节点地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-28-top-vpn-node.htm" title="天天VPN | 9月28日18.7M/S|免费Singbox节点/Shadowrocket节点/SSR节点/V2ray节点/Clash节点/Trojan节点免费节点地址">天天VPN | 9月28日18.7M/S|免费Singbox节点/Shadowrocket节点/SSR节点/V2ray节点/Clash节点/Trojan节点免费节点地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/mianfei-vpn-2026-9-23.htm" title="天天VPN | 9月23日19.6M/S|免费Singbox节点/Clash节点/V2ray节点/Shadowrocket节点/Trojan节点/SSR节点免费节点地址">天天VPN | 9月23日19.6M/S|免费Singbox节点/Clash节点/V2ray节点/Shadowrocket节点/Trojan节点/SSR节点免费节点地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-vpn-2026-9-5.htm" title="天天VPN | 9月5日20.9M/S|免费Shadowrocket节点/Singbox节点/V2ray节点/Trojan节点/Clash节点/SSR节点免费节点地址">天天VPN | 9月5日20.9M/S|免费Shadowrocket节点/Singbox节点/V2ray节点/Trojan节点/Clash节点/SSR节点免费节点地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/top-vpn-2026-9-29.htm" title="天天VPN | 9月29日19M/S|免费SSR节点/Singbox节点/Shadowrocket节点/Trojan节点/Clash节点/V2ray节点免费节点地址">天天VPN | 9月29日19M/S|免费SSR节点/Singbox节点/Shadowrocket节点/Trojan节点/Clash节点/V2ray节点免费节点地址</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-9-12-free-node-subscribe.htm" title="天天VPN | 9月12日22.4M/S|免费Clash节点/Trojan节点/Shadowrocket节点/SSR节点/V2ray节点/Singbox节点免费节点地址">天天VPN | 9月12日22.4M/S|免费Clash节点/Trojan节点/Shadowrocket节点/SSR节点/V2ray节点/Singbox节点免费节点地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-18-vpn-proxy.htm" title="天天VPN | 9月18日21.9M/S|免费SSR节点/Singbox节点/Shadowrocket节点/V2ray节点/Clash节点/Trojan节点免费节点地址">天天VPN | 9月18日21.9M/S|免费SSR节点/Singbox节点/Shadowrocket节点/V2ray节点/Clash节点/Trojan节点免费节点地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-26-top-vpn-node.htm" title="天天VPN | 9月26日20.8M/S|免费Trojan节点/V2ray节点/Clash节点/Shadowrocket节点/SSR节点/Singbox节点免费节点地址">天天VPN | 9月26日20.8M/S|免费Trojan节点/V2ray节点/Clash节点/Shadowrocket节点/SSR节点/Singbox节点免费节点地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-vpn-2026-10-1.htm" title="天天VPN | 10月1日18.4M/S|免费V2ray节点/Shadowrocket节点/Singbox节点/SSR节点/Clash节点/Trojan节点免费节点地址">天天VPN | 10月1日18.4M/S|免费V2ray节点/Shadowrocket节点/Singbox节点/SSR节点/Clash节点/Trojan节点免费节点地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-vpn-2026-9-19.htm" title="天天VPN | 9月19日20.5M/S|免费Trojan节点/SSR节点/Singbox节点/V2ray节点/Shadowrocket节点/Clash节点免费节点地址">天天VPN | 9月19日20.5M/S|免费Trojan节点/SSR节点/Singbox节点/V2ray节点/Shadowrocket节点/Clash节点免费节点地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/share-vpn-2026-10-9.htm" title="天天VPN | 10月9日19.3M/S|免费V2ray节点/Trojan节点/SSR节点/Shadowrocket节点/Singbox节点/Clash节点免费节点地址">天天VPN | 10月9日19.3M/S|免费V2ray节点/Trojan节点/SSR节点/Shadowrocket节点/Singbox节点/Clash节点免费节点地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-4-free-node-subscribe.htm" title="天天VPN | 10月4日18M/S|免费Shadowrocket节点/Clash节点/Trojan节点/V2ray节点/SSR节点/Singbox节点免费节点地址">天天VPN | 10月4日18M/S|免费Shadowrocket节点/Clash节点/Trojan节点/V2ray节点/SSR节点/Singbox节点免费节点地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-10-17.htm" title="天天VPN | 10月17日18M/S|免费SSR节点/Shadowrocket节点/Trojan节点/Singbox节点/Clash节点/V2ray节点免费节点地址">天天VPN | 10月17日18M/S|免费SSR节点/Shadowrocket节点/Trojan节点/Singbox节点/Clash节点/V2ray节点免费节点地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-9-11.htm" title="天天VPN | 9月11日18.3M/S|免费SSR节点/Singbox节点/V2ray节点/Trojan节点/Shadowrocket节点/Clash节点免费节点地址">天天VPN | 9月11日18.3M/S|免费SSR节点/Singbox节点/V2ray节点/Trojan节点/Shadowrocket节点/Clash节点免费节点地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-2-free-node-subscribe.htm" title="天天VPN | 9月2日20.9M/S|免费Clash节点/Singbox节点/Trojan节点/Shadowrocket节点/V2ray节点/SSR节点免费节点地址">天天VPN | 9月2日20.9M/S|免费Clash节点/Singbox节点/Trojan节点/Shadowrocket节点/V2ray节点/SSR节点免费节点地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-16-free-node-subscribe.htm" title="天天VPN | 10月16日21M/S|免费Trojan节点/Clash节点/SSR节点/V2ray节点/Shadowrocket节点/Singbox节点免费节点地址">天天VPN | 10月16日21M/S|免费Trojan节点/Clash节点/SSR节点/V2ray节点/Shadowrocket节点/Singbox节点免费节点地址</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -484,7 +484,7 @@ PROCESS-NAME,YouTube,PROXY
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">10</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
+                <h4><span class="badge" style="float: right;">17</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
